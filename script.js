@@ -11,13 +11,13 @@ const urlAquario = "https://www.youtube.com/embed/rHOIMgL2bcQ?autoplay=1&mute=1&
 const urlEstrelas = "https://www.youtube.com/embed/X-XZx1o_w-A?autoplay=1&mute=1&loop=1&playlist=X-XZx1o_w-A";
 //video
 
-let tempoSegundos = 10;
+let tempoSegundos = 1500;
 let intervaloId = null;
 
 const tempos = {
-    foco: 10,        // 25 min
-    pausaCurta: 10,   // 5 min
-    pausaLonga: 10    // 15 min
+    foco: 1500,        // 25 min
+    pausaCurta: 300,   // 5 min
+    pausaLonga: 900    // 15 min
 };
 
 let modoAtual = 'Foco';
@@ -156,3 +156,4 @@ document.addEventListener("visibilitychange", () => {
 ['mousemove', 'mousedown', 'touchstart', 'load'].forEach( e => 
     window.addEventListener(e, resetarTimerInatividade)
 );
+
