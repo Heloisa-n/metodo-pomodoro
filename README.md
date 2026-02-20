@@ -17,8 +17,8 @@ Uma experiência imersiva de produtividade que utiliza o conceito de Glassmorphi
 
 ## 🎥 Créditos de Mídia
 Os ambientes imersivos foram criados utilizando vídeos incorporados via IFrame API:
-- **Espaço Sideral:** [youtube.com/watch?v=X-XZx1o_w-A&source_ve_path=MTc4NDI0]
-- **Aquário Deep Sea:** [youtube.com/watch?v=rHOIMgL2bcQ&source_ve_path=MTc4NDI0]
+- **Espaço Sideral:** [video no YouTube] youtube.com/watch?v=X-XZx1o_w-A&source_ve_path=MTc4NDI0
+- **Aquário Deep Sea:** [video no YouTube] youtube.com/watch?v=rHOIMgL2bcQ&source_ve_path=MTc4NDI0
 
 ## 🛠️ Tecnologias
 - HTML5 Semântico
