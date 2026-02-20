@@ -1,0 +1,25 @@
+//Mixins:
+@mixin display-flex-centralizado($direcao: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direcao;
+}
+
+@mixin vidro($bg, $blur, $shadow: none, $border: rgba(255, 255, 255, 0.1)) {
+  background-color: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  box-shadow: $shadow;
+  border: 1px solid $border;
+}
+
+@mixin efeito-fantasma($op: 0.2, $blur: 2px) {
+  .pomodoro-container { @include vidro(rgba(255, 255, 255, 0.02), $blur); }
+  .pomodoro-titulo-container, .pomodoro-display, .pomodoro-controles { opacity: $op; transition: opacity 2s ease-in-out }
+}
+
+@mixin camada-video($z-index, $opacity) {
+  z-index: $z-index;
+  opacity: $opacity;
+}

@@ -1,0 +1,170 @@
+@use 'mixins' as *;
+@use 'variaveis' as *;
+
+* {margin: 0;padding: 0;box-sizing: border-box;}
+
+body {
+  @include display-flex-centralizado;
+  background-color: $cor-azul-translucido;
+  height: 100vh;
+  transition: background-color 1.5s ease-in-out;
+}
+
+//video//
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; // Atrás de tudo
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  pointer-events: none; // Impede que o usuário clique no vídeo e saia do site
+  overflow: hidden;
+
+  iframe {
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.77vh; // Garante que cubra a tela toda
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1); // Centraliza o vídeo
+  }
+
+  &.estrelas {@include camada-video(-2,1); } // -2 Fica no fundo de tudo, 1 Já começa visível
+
+  &.aquario {@include camada-video(-1,0 ); } // -1 fica na frente do video estralas, 0 está escondido até ser chamado.
+
+}
+
+////////////////////////////////////////////////////////////////
+
+//MODO CONTEMPLAÇÃO
+body.contemplacao {@include efeito-fantasma(0.1,2px);}
+
+////////////////////////////////////////////////////////////////
+// MODO FOCO
+body.foco {
+  .video-background.estrelas { opacity: 0; }
+  .video-background.aquario { opacity: 1; }
+
+  .pomodoro-container {
+    @include vidro($cor-azul-translucido, 8px, (0 40px 100px rgba(0, 0, 0, 0.5)), rgba(255, 255, 255, 0.15));
+  }
+
+  .pomodoro-controles button {
+    @include vidro(rgba(255, 255, 255, 0.2), 8px, none, rgba(255, 255, 255, 0.3));
+    color: $cor-branco;
+    &:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.4); }
+  }
+}
+
+////////////////////////////////////////////////////////////////
+// FOCO + PAUSE
+body.foco.pausado { 
+    @include efeito-fantasma(0.3, 2px);
+    .pomodoro-container { background-color: rgba(56, 133, 138, 0.05); }
+    
+    .pomodoro-controles { 
+        opacity: 0.6; 
+        &:hover { opacity: 1; }
+        button:hover { opacity: 1; transform: translateY(-8px); background: rgba(255, 255, 255, 0.5); }
+    }
+}
+////////////////////////////////////////////////////////////////
+//GERAL
+.pomodoro-container {
+  @include display-flex-centralizado(column);
+  width: 80vw;
+  height: 80vh;
+  border-radius: 60px;
+  gap: 10px;
+
+  // Estrelas:
+  @include vidro(rgba(255, 255, 255, 0.1), 12px, (0 25px 50px rgba(0, 0, 0, 0.3)), rgba(255, 255, 255, 0.2));
+  transition: all 1.5s ease-in-out;
+
+  .pomodoro-titulo-container,
+  .pomodoro-display,
+  .pomodoro-controles {
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+  }
+
+  .pomodoro-titulo-container {
+
+    @include display-flex-centralizado(column);
+        
+    height: 14vh;
+
+    .pomodoro-titulo {
+      color: $cor-branco;
+      font-family: $fonte-principal;
+      font-size: 5cqw;
+    }
+
+    .pomodoro-ciclo {
+      color: $cor-branco;
+      font-family: $fonte-principal;
+      font-size: 2cqw;
+    }
+
+  }
+
+  .pomodoro-display {
+    width: 90%;
+    border-top: 2px solid $cor-branco;
+    border-bottom: 2px solid $cor-branco;
+    container-type: inline-size;
+    @include display-flex-centralizado;
+
+    span {
+      font-size: 30cqw;
+      color: $cor-branco;
+      font-family: $fonte-principal;
+      line-height: 1;
+    }
+
+  }
+
+  .pomodoro-controles {
+    padding-top: 20px;
+    @include display-flex-centralizado;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 250px;
+    gap: 10px;
+
+    button {
+      flex: 1;
+      @include vidro(rgba(255,255,255,0.1),5px);
+      color: $cor-branco;
+      border-radius: 8px;
+      border-style: none;
+      padding: 12px;
+      font-family: $fonte-principal;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 1.5s ease-in-out;
+
+      &:hover {
+        transition: 1s;
+        background-color: $cor-fundo-botao;
+        color: $cor-branco;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+
+  .pomodoro-container {
+    width: 95vw;
+    height: 90vh;
+    border-radius: 30px;
+  }
+
+}

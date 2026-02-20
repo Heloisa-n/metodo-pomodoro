@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método Pomodoro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- vídeo -->
+    <div class="video-background estrelas">
+        <iframe src="https://www.youtube.com/embed/X-XZx1o_w-A?autoplay=1&mute=1&loop=1&playlist=X-XZx1o_w-A" 
+                frameborder="0" allow="autoplay; encrypted-media">
+        </iframe>
+    </div>
+
+    <div class="video-background aquario">
+        <iframe 
+            src="" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media">
+        </iframe>
+    </div>
+    <!-- ---------------- -->
+
+    <main class="pomodoro-container">
+
+        <div class="pomodoro-titulo-container">
+
+            <span class="pomodoro-titulo">Foco</span>
+            <span class="pomodoro-ciclo"></span>
+
+        </div>
+        
+        <div class="pomodoro-display">
+
+            <span class="pomodoro-timer"> 00:00 </span>
+
+        </div>
+
+        <div class="pomodoro-controles">
+
+            <button id="btn_iniciar" onclick="iniciar()">Iniciar</button>
+            <button id="btn_pausa" onclick="pausar()">Pausar</button>
+            <button id="btn_resete" onclick="resetar()">Resetar</button>
+
+        </div>
+
+    </main>
+    
+</body>
+</html>
